@@ -10,10 +10,10 @@
 
 int main(void){
     site *listaSiteuri, *listaFiltrate;
-    char **cuvinte, **cuvinte_negate;
+    char **cuvinte;
     int numar_elemente = 0, capacitate = 3;
     int numar_cuvinte_negate, numar_filtrate, numar_cuvinte;
-    int task = 1;
+    int task = 5;
     listaSiteuri = setareBazaDeDate(listaSiteuri, &numar_elemente, &capacitate);
     if(task == 1){
         showThings(listaSiteuri, numar_elemente);
@@ -52,10 +52,11 @@ int main(void){
                 printf("Malicious website! Official key: %d. Found key: %d\n", listaSiteuri[nrSite].checksum, checksumCalc);
             }
         }
+        free(siteuriDeVerificat);
     }
     else if(task == 5){
-        //printf("%d\n", strlen(listaSiteuri[0].cod.codHtml));
-        printf("%s", listaSiteuri[0].cod.codHtml);
+        for(int i = 0; i < numar_elemente; i++)
+        printf("%d %d\n", listaSiteuri[i].cod.textColor, listaSiteuri[i].cod.backgroundColor);
     }
     free(listaSiteuri);
 }

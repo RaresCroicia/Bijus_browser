@@ -2,7 +2,7 @@
 #define __task0_h__
 
 
-enum culori {white, black, red, green, blue, yellow};
+enum culori {white = 7, black = 0, red = 1, green = 2, blue = 4, yellow = 3};
 
 typedef struct{
     char *titlu;

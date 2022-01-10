@@ -3,6 +3,22 @@
 #include <string.h>
 #include "task0.h"
 
+int getColor(char *culoare){
+    if(strcmp(culoare, "white") == 0)
+        return white;
+    if(strcmp(culoare, "black") == 0)
+        return black;
+    if(strcmp(culoare, "red") == 0)
+        return red;
+    if(strcmp(culoare, "green") == 0)
+        return green;
+    if(strcmp(culoare, "blue") == 0)
+        return blue;
+    if(strcmp(culoare, "yellow") == 0)
+        return yellow;
+    return -1;
+}
+
 void setareParametri(HTML *var){
     //Extragere titlu
     char *titleStart, *titleStop;
@@ -27,6 +43,8 @@ void setareParametri(HTML *var){
         k = 0;
         for(int i = pozP1; i < pozP2; i++)
             var->paragraf[k++] = var->codHtml[i];
+        var->textColor = black;
+        var->backgroundColor = white;
     }
     else{
         char *parStart, *parStop;
@@ -39,9 +57,44 @@ void setareParametri(HTML *var){
         k = 0;
         for(int i = pozP1; i < pozP2; i++)
             var->paragraf[k++] = var->codHtml[i];
+        
+        char *culStart, *culStop, *culStart1, *culStop1;
+        char *colorAct;
+        if(strstr(var->codHtml, "color:") != NULL){
+            culStart = strstr(var->codHtml, "color:");
+            culStop = strstr(culStart+6, ";");
+            int pozC1 = culStart - var->codHtml + 6;
+            int pozC2 = culStop - var->codHtml;
+            int dimP = pozC2 - pozC1+1; 
+            int cnt = 0;
+            colorAct = malloc(dimP * sizeof(char));
+            for(int i = pozC1; i < pozC2; i++){
+                colorAct[cnt++] = var->codHtml[i]; 
+            }
+            colorAct[cnt] = '\0';
+            var->textColor = getColor(colorAct);
+        }
+        else{
+            var->textColor = black;
+        }
+        if(strstr(var->codHtml, "background-color:") != NULL){
+            culStart = strstr(var->codHtml, "background-color:");
+            culStop = strstr(culStart+17, ";");
+            int pozC1 = culStart - var->codHtml + 17;
+            int pozC2 = culStop - var->codHtml;
+            int dimP = pozC2 - pozC1+1; 
+            int cnt = 0;
+            colorAct = malloc(dimP * sizeof(char));
+            for(int i = pozC1; i < pozC2; i++){
+                colorAct[cnt++] = var->codHtml[i]; 
+            }
+            colorAct[cnt] = '\0';
+            var->backgroundColor = getColor(colorAct);
+        }
+        else{
+            var->backgroundColor = white;
+        }
     }
-
-
 }
 
 site citire(char nume_fisier[35]){
