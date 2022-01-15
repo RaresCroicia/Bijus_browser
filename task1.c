@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "task0.h"
+#include <string.h>
+#include "site.h"
+#include "help_task1.h"
 
-void showThings(site *site_afisat, int numar_elemente){
-    for(int i = 0; i < numar_elemente; i++)
-    printf("%s %d %s\n", site_afisat[i].URL, site_afisat[i].numarAccesari, site_afisat[i].cod.titlu);
+int main(void){
+    site *listaSiteuri;
+    int numar_elemente = 0, capacitate = 3;
+    listaSiteuri = setareBazaDeDate(listaSiteuri, &numar_elemente, &capacitate);
+        showThings(listaSiteuri, numar_elemente);
+    free_site(listaSiteuri, numar_elemente);
 }

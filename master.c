@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "task0.h"
-#include "task1.h"
-#include "task2.h"
-#include "task3.h"
-#include "task4.h"
+#include "site.h"
+#include "help_task1.h"
+#include "help_task2.h"
+#include "help_task3.h"
+#include "help_task4.h"
 #include "sort.h"
 
 int main(void){
@@ -55,8 +55,9 @@ int main(void){
         free(siteuriDeVerificat);
     }
     else if(task == 5){
-        for(int i = 0; i < numar_elemente; i++)
-        printf("%d %d\n", listaSiteuri[i].cod.textColor, listaSiteuri[i].cod.backgroundColor);
+        for(int i = 0; i < numar_elemente; i++){
+            printf("%s\n", listaSiteuri[i].cod.codHtml);
+        }
     }
     free(listaSiteuri);
 }

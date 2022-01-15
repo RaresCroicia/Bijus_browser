@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "task0.h"
+#include "site.h"
 
 void swap(site *a, site *b){
     site aux;
