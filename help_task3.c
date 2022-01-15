@@ -58,9 +58,6 @@ site* filtrareAvans(site *st, site *stf, char **cuv, int nS, int nC, int *nS_F){
     stf = malloc(cap_stf * sizeof(site));
 
     for(int i = 0; i < nS; i++){
-
-        //nr_cuv = numar cuvinte paragraf
-        //nC = numar cuvinte tastatura
         char *cp_para;
         cp_para = malloc((strlen(st[i].cod.paragraf)+1) * sizeof(char));
         st[i].cod.paragraf[strlen(st[i].cod.paragraf)] = '\0';
@@ -85,13 +82,6 @@ site* filtrareAvans(site *st, site *stf, char **cuv, int nS, int nC, int *nS_F){
             p = strtok(NULL, " ");
         }
 
-        // printf("%d %d\n", nC, nr_cuv);
-
-        // for(int j = 0; j < nC; j++)
-        //     printf("%s\n", cuv[j]);
-        // printf("\n\n\n\n\n\n");
-        // for(int j = 0; j < nr_cuv; j++)
-        //     printf("%s ", cuv_sep[j]);
         int ok = 0;
 
         for(int j = 0; j < nC; j++){

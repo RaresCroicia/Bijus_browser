@@ -1,6 +1,5 @@
 #ifndef __sort_h__
 #define __sort_h__
-
 #include "site.h"
 
 void swap(site *a, site *b);

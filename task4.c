@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "site.h"
-#include "help_task1.h"
-#include "help_task2.h"
-#include "help_task3.h"
 #include "help_task4.h"
-#include "sort.h"
 
 int main(void){
     site *listaSiteuri, *listaFiltrate;

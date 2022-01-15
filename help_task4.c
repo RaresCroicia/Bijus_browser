@@ -93,7 +93,6 @@ char** readCuvinte(char **cuvinte, int *nrCuv){
         if(aux[strlen(aux)-1] == '\n')
             aux[strlen(aux)-1] = '\0';
         strcpy(cuvinte[i], aux);
-        //printf("%s ", cuvinte[i]);
         i++;
         (*nrCuv) ++;
     }

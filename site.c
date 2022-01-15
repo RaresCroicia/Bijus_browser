@@ -113,7 +113,6 @@ void setareParametri(HTML *var){
 
 char** getCuvinte(char **cuvinte, int *nC){
     char aux[500];
-    const char space[1] = " ";
     char *ll = aux;
     char *p;
     (*nC) = 0;
@@ -140,7 +139,7 @@ site citire(char nume_fisier[35]){
     FILE *fisier;
     fisier = fopen(nume_fisier, "r");
     site aux;
-    char *codHtml, useless;
+    char useless;
     fscanf(fisier, "%s%d%d%d", aux.URL, &aux.sizeOcteti, &aux.numarAccesari, &aux.checksum);
     aux.cod.codHtml = malloc((aux.sizeOcteti+1) * sizeof(char));
     strcpy(aux.nume, nume_fisier);

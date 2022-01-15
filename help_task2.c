@@ -38,7 +38,6 @@ site* filtrare(site *st, site *stf, char **cuv, int nS, int nC, int *nS_F){
                     break;
                 }
             }
-        //DACA E SMECHER
         if(ok == 1){
             if(k == cap_stf){
                 cap_stf*=2;
