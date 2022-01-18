@@ -72,24 +72,9 @@ void setareParametri(HTML *var){
         
         char *culStart, *culStop, *culStart1, *culStop1;
         char *colorAct;
-        if(strstr(var->codHtml, "color:") != NULL){
-            culStart = strstr(var->codHtml, "color:");
-            culStop = strstr(culStart+6, ";");
-            int pozC1 = culStart - var->codHtml + 6;
-            int pozC2 = culStop - var->codHtml;
-            int dimC = pozC2 - pozC1+1; 
-            int cnt = 0;
-            colorAct = malloc(dimC * sizeof(char));
-            for(int i = pozC1; i < pozC2; i++){
-                colorAct[cnt++] = var->codHtml[i]; 
-            }
-            colorAct[cnt] = '\0';
-            var->textColor = getColor(colorAct);
-            free(colorAct);
-        }
-        else{
-            var->textColor = black;
-        }
+        
+        var -> backgroundColor = 152;
+
         if(strstr(var->codHtml, "background-color:") != NULL){
             culStart1 = strstr(var->codHtml, "background-color:");
             culStop1 = strstr(culStart1+17, ";");
@@ -108,6 +93,28 @@ void setareParametri(HTML *var){
         else{
             var->backgroundColor = white;
         }
+        if(strstr(var->codHtml, "color:") != NULL ){
+            culStart = strstr(var->codHtml, "color:");
+            culStop = strstr(culStart+6, ";");
+            int pozC1 = culStart - var->codHtml + 6;
+            int pozC2 = culStop - var->codHtml;
+            int dimC = pozC2 - pozC1+1; 
+            int cnt = 0;
+            colorAct = malloc(dimC * sizeof(char));
+            for(int i = pozC1; i < pozC2; i++){
+                colorAct[cnt++] = var->codHtml[i]; 
+            }
+            colorAct[cnt] = '\0';
+            if(getColor(colorAct) != var->backgroundColor)
+                var->textColor = getColor(colorAct);
+            else
+                var->textColor = black;
+            free(colorAct);
+        }
+        else{
+            var->textColor = black;
+        }
+        
     }
 }
 
@@ -131,6 +138,79 @@ char** getCuvinte(char **cuvinte, int *nC){
         strcpy(cuvinte[i], p);
         i++;
         (*nC) ++;
+    }
+    return cuvinte;
+}
+
+char** getCuvinteLista(char **cuvinte, int *nC, char *lista){
+    char aux[500];
+    char *ll = aux;
+    char *p;
+    (*nC) = 0;
+    int i = 0, cap = 1;
+    strcpy(aux, lista);
+    cuvinte = malloc(cap * sizeof(char*));
+    while ((p = strtok_r(ll, " ", &ll))){
+        
+        if(i == cap){
+            cap *= 2;
+            cuvinte = realloc(cuvinte, cap*sizeof(char*));
+        }
+
+        cuvinte[i] = malloc((strlen(p)+1) * sizeof(char));
+        p[strlen(p)] = '\0';
+        strcpy(cuvinte[i], p);
+        i++;
+        (*nC) ++;
+    }
+    return cuvinte;
+}
+
+char** getCuvinteAvansLista(char **cuvinte, int *nC, char *lista){
+    char aux[500];
+    const char space[1] = " ";
+    char *ll = aux;
+    char *p;
+    (*nC) = 0;
+    int i = 0, cap = 1;
+    int ok = 0;
+    strcpy(aux, lista);
+    cuvinte = malloc(cap * sizeof(char*));
+    while ((p = strtok_r(ll, " ", &ll))){
+        
+        if(i == cap){
+            cap *= 2;
+            cuvinte = realloc(cuvinte, cap*sizeof(char*));
+        }
+
+        //cazul I - are " la inceput
+        if(p[0] == '"'){
+            ok = 1;
+            cuvinte[i] = malloc((strlen(p)+1) * sizeof(char));
+            p[strlen(p)] = '\0';
+            strcpy(cuvinte[i], p);
+        }
+        else{
+            if(ok == 0){
+                cuvinte[i] = malloc((strlen(p)+1) * sizeof(char));
+                p[strlen(p)] = '\0';
+                strcpy(cuvinte[i], p);
+                i++;
+                (*nC) ++;
+            }
+            else{
+                p[strlen(p)] = '\0';
+                cuvinte[i] = realloc(cuvinte[i], (strlen(cuvinte[i]) + strlen(p) + 2) * sizeof(char));
+                strcat(cuvinte[i], " ");
+                strcat(cuvinte[i], p);
+                if(p[strlen(p)-1] == '"'){
+                    ok = 0;
+                    cuvinte[i][strlen(cuvinte[i])-1] = '\0';
+                    i++;
+                    (*nC) ++;
+                }
+            }
+        }
     }
     return cuvinte;
 }

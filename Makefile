@@ -1,13 +1,9 @@
 build:
-	gcc -o master master.c site.c help_task1.c help_task2.c help_task3.c help_task4.c sort.c -g -lncurses
-	gcc -o browser browser.c site.c help_task1.c help_task2.c help_task3.c help_task4.c sort.c -g -lncurses
-	gcc -o task1 task1.c site.c help_task1.c -g -lncurses
-	gcc -o task2 task2.c site.c help_task2.c sort.c -g -lncurses
-	gcc -o task3 task3.c site.c help_task3.c sort.c -g -lncurses
-	gcc -o task4 task4.c site.c help_task4.c -g -lncurses
+	gcc -o task1 task1.c site.c help_task1.c -std=c99
+	gcc -o task2 task2.c site.c help_task2.c sort.c -std=c99
+	gcc -o task3 task3.c site.c help_task3.c sort.c -std=c99
+	gcc -o task4 task4.c site.c help_task4.c -g -lm -std=c99
+	gcc -o browser browser.c site.c help_task2.c help_task3.c sort.c -g -lncurses -std=c99
 
-runMaster: build
-	./master
-
-runBrowser: build
-	./browser
+clean:
+	rm browser task1 task2 task3 task4

@@ -21,4 +21,6 @@ site* setareBazaDeDate(site *LS, int *numar_elemente, int *capacitate);
 void setareParametri(HTML *var);
 void free_site(site *siteuri, int n);    
 char** getCuvinte(char **cuvinte, int *nC);
+char** getCuvinteLista(char **cuvinte, int *nC, char *lista);
+char** getCuvinteAvansLista(char **cuvinte, int *nC, char *lista);
 #endif
