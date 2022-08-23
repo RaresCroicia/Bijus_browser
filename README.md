@@ -13,6 +13,7 @@ Use the following in the terminal:
 
 ```
 git clone https://github.com/RaresCroicia/Bijus_browser
+cd Bijus_browser
 make prerequisite
 make
 ./browser
