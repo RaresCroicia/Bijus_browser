@@ -9,7 +9,7 @@ a real usage starting from simple problems.
 
 ## Instalation
 
-Use in the terminal the following
+Use the following in the terminal: 
 
 ```
 git clone https://github.com/RaresCroicia/Bijus_browser
