@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "site.h"
+#include "../Headers/site.h"
 
 void free_site(site *siteuri, int n){
     for(int i = 0; i < n; i++){

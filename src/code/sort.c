@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "site.h"
+#include "../Headers/site.h"
 
 void swap(site *a, site *b){
     site aux;

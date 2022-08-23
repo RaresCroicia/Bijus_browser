@@ -1,5 +1,5 @@
-#ifndef __task4_h__
-#define __task4_h__
+#ifndef __task4H_h__
+#define __task4H_h__
 #include "site.h"
 
 int rotr(char x, int k);

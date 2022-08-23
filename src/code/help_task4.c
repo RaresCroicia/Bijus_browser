@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "site.h"
+#include "../Headers/site.h"
 
 void dec_to_bin(int n, char *s){
     char aux[8];

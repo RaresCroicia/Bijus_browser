@@ -1,5 +1,5 @@
-#ifndef __task3_h__
-#define __task3_h__
+#ifndef __task3H_h__
+#define __task3H_h__
 #include "site.h"
 
 char** getCuvinteAvans(char **cuvinte, int *nC);

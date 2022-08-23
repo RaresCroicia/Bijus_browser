@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "site.h"
-#include "help_task2.h"
-#include "help_task3.h"
-#include "sort.h"
+#include "../Headers/site.h"
+#include "../Headers/help_task2.h"
+#include "../Headers/help_task3.h"
+#include "../Headers/sort.h"
 #include <string.h>
 #include <ncurses.h>
 

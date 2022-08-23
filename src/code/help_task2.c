@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "site.h"
+#include "../Headers/site.h"
 
 site* filtrare(site *st, site *stf, char **cuv, int nS, int nC, int *nS_F){
     (*nS_F) = 0;

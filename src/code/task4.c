@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "site.h"
-#include "help_task4.h"
+#include "../Headers/site.h"
+#include "../Headers/task4.h"
+#include "../Headers/help_task4.h"
 
 int main(void){
     site *listaSiteuri, *listaFiltrate;

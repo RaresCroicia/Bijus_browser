@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "site.h"
+#include "../Headers/site.h"
 
 void showThings(site *site_afisat, int numar_elemente){
     for(int i = 0; i < numar_elemente; i++)

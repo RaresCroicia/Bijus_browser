@@ -1,7 +1,5 @@
-sites/alabalaportocala.html
-sites/alt_site.html
-sites/a_s_e.html
-sites/facebook.html
-sites/important.html
-sites/tutorial_franceza.html
-sites/upb.html
+sites/site1.html
+sites/site2.html
+sites/site3.html
+sites/site4.html
+sites/site5.html

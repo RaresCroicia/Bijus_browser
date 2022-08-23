@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "task0.h"
+#include "../Headers/task0.h"
 
 int getColor(char *culoare){
     if(strcmp(culoare, "white") == 0)
@@ -123,7 +123,7 @@ site* setareBazaDeDate(site *LS, int *numar_elemente, int *capacitate) {
     FILE *master, *fisier;
     char nume_fisier[35];
     LS = malloc((*capacitate)*sizeof(site));
-    master = fopen("master.txt", "r");
+    master = fopen("../../master.txt", "r");
     while(fgets(nume_fisier, 35, master) != NULL){
         if((*numar_elemente) == (*capacitate)){
             (*capacitate) += 3;

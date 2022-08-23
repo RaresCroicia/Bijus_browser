@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "ncurses.h": "c",
+        "site.h": "c",
+        "help_task2.h": "c",
+        "sort.h": "c",
+        "task2.h": "c",
+        "help_task1.h": "c",
+        "task1.h": "c",
+        "help_task3.h": "c",
+        "task3.h": "c",
+        "task4.h": "c",
+        "help_task4.h": "c"
+    }
+}

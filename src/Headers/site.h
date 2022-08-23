@@ -1,5 +1,5 @@
-#ifndef __task0_h__
-#define __task0_h__
+#ifndef __site_h__
+#define __site_h__
 
 enum culori {white = 7, black = 0, red = 1, green = 2, blue = 4, yellow = 3};
 
